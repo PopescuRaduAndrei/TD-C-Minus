@@ -3,3 +3,5 @@ cminus.tab.c(1117,22): warning C4013: 'yylex' undefined; assuming extern returni
 cminus.tab.c(1252,15): warning C4013: 'yyerror' undefined; assuming extern returning int
 cminus.y(167,6): error C2371: 'yyerror': redefinition; different basic types
 cminus.y(169,48): error C2065: 'yylineno': undeclared identifier
+  C-Minus.c
+  Generating Code...

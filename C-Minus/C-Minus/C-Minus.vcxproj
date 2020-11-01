@@ -141,14 +141,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\cminus.tab.c" />
     <ClCompile Include="..\lex.yy.c" />
     <ClCompile Include="C-Minus.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\cminus.tab.h" />
     <ClInclude Include="..\symbols.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\C-Minus.lex" />
+    <None Include="..\cminus.y" />
     <None Include="input.csrc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

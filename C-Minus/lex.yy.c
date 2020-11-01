@@ -480,8 +480,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "C-Minus.lex"
-#line 8 "C-Minus.lex"
+#line 1 "c-minus.lex"
+#line 8 "c-minus.lex"
 #include <stdio.h>
 #include "symbols.h"
 
@@ -705,7 +705,7 @@ YY_DECL
 		}
 
 	{
-#line 15 "C-Minus.lex"
+#line 15 "c-minus.lex"
 
 #line 710 "lex.yy.c"
 
@@ -766,168 +766,168 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 16 "C-Minus.lex"
+#line 16 "c-minus.lex"
 { comment(); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 18 "C-Minus.lex"
+#line 18 "c-minus.lex"
 { count(); return(ELSE); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 19 "C-Minus.lex"
+#line 19 "c-minus.lex"
 { count(); return(IF); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 20 "C-Minus.lex"
+#line 20 "c-minus.lex"
 { count(); return(INT); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 21 "C-Minus.lex"
+#line 21 "c-minus.lex"
 { count(); return(RETURN); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 22 "C-Minus.lex"
+#line 22 "c-minus.lex"
 { count(); return(VOID); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 23 "C-Minus.lex"
+#line 23 "c-minus.lex"
 { count(); return(WHILE); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 25 "C-Minus.lex"
-{ count(); return(check_type()); }
+#line 25 "c-minus.lex"
+{ count(); return(ID); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 26 "C-Minus.lex"
+#line 26 "c-minus.lex"
 { count(); return (NUM); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 28 "C-Minus.lex"
+#line 28 "c-minus.lex"
 { count(); return(CONSTANT); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 29 "C-Minus.lex"
+#line 29 "c-minus.lex"
 { count(); return(CONSTANT); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 31 "C-Minus.lex"
+#line 31 "c-minus.lex"
 { count(); return(ASSIGN); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 32 "C-Minus.lex"
+#line 32 "c-minus.lex"
 { count(); return(ADD); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 33 "C-Minus.lex"
+#line 33 "c-minus.lex"
 { count(); return(SUBSTRACT); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 34 "C-Minus.lex"
+#line 34 "c-minus.lex"
 { count(); return (END_OF_INSTRUCTION);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 35 "C-Minus.lex"
+#line 35 "c-minus.lex"
 { count(); return EQUAL;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 36 "C-Minus.lex"
+#line 36 "c-minus.lex"
 { count(); return NOTEQUAL;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 37 "C-Minus.lex"
+#line 37 "c-minus.lex"
 { count(); return LOWER;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 38 "C-Minus.lex"
+#line 38 "c-minus.lex"
 { count(); return LOWEROREQUAL;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 39 "C-Minus.lex"
+#line 39 "c-minus.lex"
 { count(); return GREATER;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 40 "C-Minus.lex"
+#line 40 "c-minus.lex"
 { count(); return GREATEROREQUAL;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 41 "C-Minus.lex"
+#line 41 "c-minus.lex"
 { count(); return MULTIPLY;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 42 "C-Minus.lex"
+#line 42 "c-minus.lex"
 { count(); return DIVIDE;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 43 "C-Minus.lex"
+#line 43 "c-minus.lex"
 { count(); return LPAREN;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 44 "C-Minus.lex"
+#line 44 "c-minus.lex"
 { count(); return RPAREN;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 45 "C-Minus.lex"
+#line 45 "c-minus.lex"
 { count(); return LBRACKET;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 46 "C-Minus.lex"
+#line 46 "c-minus.lex"
 { count(); return RBRACKET;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 47 "C-Minus.lex"
+#line 47 "c-minus.lex"
 { count(); return LBRACE;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 48 "C-Minus.lex"
+#line 48 "c-minus.lex"
 { count(); return RBRACE;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 49 "C-Minus.lex"
+#line 49 "c-minus.lex"
 { count(); return COMMA;}
 	YY_BREAK
 case 31:
 /* rule 31 can match eol */
 YY_RULE_SETUP
-#line 51 "C-Minus.lex"
+#line 51 "c-minus.lex"
 { count(); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 52 "C-Minus.lex"
+#line 52 "c-minus.lex"
 { badChars(); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 54 "C-Minus.lex"
+#line 54 "c-minus.lex"
 ECHO;
 	YY_BREAK
 #line 933 "lex.yy.c"
@@ -1935,7 +1935,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 54 "C-Minus.lex"
+#line 54 "c-minus.lex"
 
 
 yywrap()
@@ -1978,13 +1978,6 @@ void count()
 			column++;
 
 	ECHO;
-}
-
-
-int check_type()
-{
-
-	return(IDENTIFIER);
 }
 
 void badChars()

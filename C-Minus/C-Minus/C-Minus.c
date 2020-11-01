@@ -46,7 +46,8 @@ int main()
 	"LBRACE", 
 	"RBRACE", 
 	"COMMA", 
-	"NUM" 
+	"NUM",
+	"ID"
 	};
 
 	int tokenValue = 0;

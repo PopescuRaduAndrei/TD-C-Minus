@@ -22,7 +22,7 @@ void badChars();
 "void"			{ count(); return(VOID); }
 "while"			{ count(); return(WHILE); }
 
-{ID}({L}|{D})*			{ count(); return(check_type()); }
+{ID}({L}|{D})*			{ count(); return(ID); }
 {D}+					{ count(); return (NUM); }
 
 0{D}+{IS}?				{ count(); return(CONSTANT); }
@@ -93,13 +93,6 @@ void count()
 			column++;
 
 	ECHO;
-}
-
-
-int check_type()
-{
-
-	return(IDENTIFIER);
 }
 
 void badChars()

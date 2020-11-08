@@ -1,7 +1,9 @@
 ﻿  cminus.tab.c
-cminus.tab.c(1117,22): warning C4013: 'yylex' undefined; assuming extern returning int
-cminus.tab.c(1252,15): warning C4013: 'yyerror' undefined; assuming extern returning int
-cminus.y(167,6): error C2371: 'yyerror': redefinition; different basic types
-cminus.y(169,48): error C2065: 'yylineno': undeclared identifier
+  lex.yy.c
+C-minus.lex(16,10): warning C4013: 'comment' undefined; assuming extern returning int
+lex.yy.c(1514,46): warning C4013: 'isatty' undefined; assuming extern returning int
   C-Minus.c
   Generating Code...
+D:\An IV\TD\TD-C-Compiler\C-Minus\C-Minus\C-minus.lex(78): warning C4716: 'comment': must return a value
+cminus.tab.obj : error LNK2019: unresolved external symbol _yyerror referenced in function _yyparse
+D:\An IV\TD\TD-C-Compiler\C-Minus\Debug\C-Minus.exe : fatal error LNK1120: 1 unresolved externals

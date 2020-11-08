@@ -1,10 +1,10 @@
 // C-Minus.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <stdio.h>
-#include <symbols.h>
+#include <cminus.tab.h>
 #include <errno.h>
 
+extern int yyparse(void);
 extern FILE* yyin;
 extern int yylex(void);
 
@@ -22,35 +22,35 @@ int main()
 	"WHILE",
 	"FLOAT",
 	"IF",
-	"ELSE", 
+	"ELSE",
 	"RETURN",
-	"CONSTANT", 
-	"STRING_LITERAL", 
-	"ASSIGN", 
-	"ADD", 
-	"SUBSTRACT", 
-	"IDENTIFIER", 
+	"CONSTANT",
+	"STRING_LITERAL",
+	"ASSIGN",
+	"ADD",
+	"SUBSTRACT",
+	"IDENTIFIER",
 	"END_OF_INSTRUCTION",
-	"EQUAL", 
-	"NOTEQUAL", 
+	"EQUAL",
+	"NOTEQUAL",
 	"LOWER",
-	"LOWEROREQUAL", 
-	"GREATER", 
-	"GREATEROREQUAL", 
-	"MULTIPLY", 
-	"DIVIDE", 
-	"LPAREN", 
-	"RPAREN", 
-	"LBRACKET", 
-	"RBRACKET", 
-	"LBRACE", 
-	"RBRACE", 
-	"COMMA", 
+	"LOWEROREQUAL",
+	"GREATER",
+	"GREATEROREQUAL",
+	"MULTIPLY",
+	"DIVIDE",
+	"LPAREN",
+	"RPAREN",
+	"LBRACKET",
+	"RBRACKET",
+	"LBRACE",
+	"RBRACE",
+	"COMMA",
 	"NUM",
 	"ID"
 	};
 
-	int tokenValue = 0;
+	/*int tokenValue = 0;
 	yyin = fopen("input.csrc", "rt");
 
 	if (yyin != NULL) {
@@ -60,6 +60,39 @@ int main()
 	}
 	else {
 		printf("Fisierul de intrare nu poate fi deschis. Erorare: %d", errno);
+	}*/
+
+	//yydebug = 1;
+	yyin = fopen("input.csrc", "rt");
+	if (yyin != NULL)
+	{
+		int result = yyparse();
+		switch (result)
+		{
+		case 0:
+			printf("Parse successfull.\n");
+			break;
+
+		case 1:
+			printf("Invalid input encountered\n");
+			break;
+
+		case 2:
+			printf("Out of memory\n");
+			break;
+
+		default:
+			break;
+		}
+		/*while ((lexUnit = yylex()) != END)
+		{
+			printf(" -> TOKEN: %s\n", symbols[lexUnit]);
+		}*/
+		fclose(yyin);
+	}
+	else
+	{
+		printf("Fisier inexistent");
 	}
 }
 

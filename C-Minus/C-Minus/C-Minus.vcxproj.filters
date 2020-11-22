@@ -18,10 +18,13 @@
     <ClCompile Include="C-Minus.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\cminus.tab.c">
+    <ClCompile Include="cminus.tab.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\lex.yy.c">
+    <ClCompile Include="ast.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lex.yy.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,18 +32,21 @@
     <None Include="input.csrc">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\C-Minus.lex">
+    <None Include="C-Minus.lex">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\cminus.y">
+    <None Include="cminus.y">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\cminus.tab.h">
+    <ClInclude Include="..\symbols.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\symbols.h">
+    <ClInclude Include="cminus.tab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ast.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

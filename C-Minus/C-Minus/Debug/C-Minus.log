@@ -1,9 +1,24 @@
-﻿  cminus.tab.c
-  lex.yy.c
-C-minus.lex(16,10): warning C4013: 'comment' undefined; assuming extern returning int
-lex.yy.c(1514,46): warning C4013: 'isatty' undefined; assuming extern returning int
-  C-Minus.c
-  Generating Code...
-D:\An IV\TD\TD-C-Compiler\C-Minus\C-Minus\C-minus.lex(78): warning C4716: 'comment': must return a value
-cminus.tab.obj : error LNK2019: unresolved external symbol _yyerror referenced in function _yyparse
-D:\An IV\TD\TD-C-Compiler\C-Minus\Debug\C-Minus.exe : fatal error LNK1120: 1 unresolved externals
+﻿  ast.c
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(14,34): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(24,36): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(27,55): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(28,30): error C2232: '->extraData': left operand has 'struct' type, use '.'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(28,52): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(28,52): warning C4024: 'sprintf': different types for formal and actual parameter 2
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(34,29): warning C4028: formal parameter 1 different from declaration
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(37,30): warning C4477: 'sprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(55,31): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(56,30): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(88,19): warning C4028: formal parameter 1 different from declaration
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(92,23): warning C4028: formal parameter 1 different from declaration
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(108,20): warning C4028: formal parameter 1 different from declaration
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(129,63): warning C4047: '=': 'Node *' differs in levels of indirection from 'Node **'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(139,64): warning C4047: '=': 'Node *' differs in levels of indirection from 'Node **'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(143,86): warning C4047: '=': 'Node *' differs in levels of indirection from 'Node **'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(152,31): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(159,39): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(169,36): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(170,33): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(171,40): error C2440: '=': cannot convert from 'Node *' to 'Node'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(212,28): error C2440: 'function': cannot convert from 'Node' to 'Node *'
+C:\Users\Andrei\Desktop\C-Minus\C-Minus\ast.c(212,28): warning C4024: 'printAst': different types for formal and actual parameter 1

@@ -94,6 +94,10 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -111,6 +115,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -141,18 +149,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\cminus.tab.c" />
-    <ClCompile Include="..\lex.yy.c" />
+    <ClCompile Include="ast.c" />
     <ClCompile Include="C-Minus.c" />
+    <ClCompile Include="cminus.tab.c" />
+    <ClCompile Include="lex.yy.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\C-Minus.lex" />
-    <None Include="..\cminus.y" />
+    <None Include="C-Minus.lex" />
+    <None Include="cminus.y" />
     <None Include="input.csrc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\cminus.tab.h" />
     <ClInclude Include="..\symbols.h" />
+    <ClInclude Include="ast.h" />
+    <ClInclude Include="cminus.tab.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

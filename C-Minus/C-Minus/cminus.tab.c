@@ -1391,4 +1391,8 @@ yyreturn:
 #line 169 "cminus.y"
 
 
+int yyerror(char *c){
+    printf("Error");
+}
+
 

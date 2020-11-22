@@ -1,18 +1,81 @@
-﻿  cminus.y:54.14-15: warning: symbol ID redeclared [-Wother]
-     54 | am  
-        |              ^~
-  cminus.y:52.8-9: note: previous declaration
-     52 | en <name>ID
-        |        ^~
-  cminus.y:55.15-17: warning: symbol NUM redeclared [-Wother]
-     55 | pe <node> program  
-        |               ^~~
-  cminus.y:51.8-10: note: previous declaration
-     51 | oken ID
-        |        ^~~
-  cminus.y:109.69-80: error: unexpected {...}
-    109 |                         {$$ = newParamList($1, $3);}
-        |                                                                     ^~~~
+﻿  cminus.y:103.152-153: error: $2 of 'var_declaration' has no declared type
+    103 | ...tion($1, $2, 0);}
+        |             ^~
+  cminus.y:104.144-145: error: $2 of 'var_declaration' has no declared type
+    104 | ...tion($1, $2, $4);}
+        |             ^~
+  cminus.y:104.148-149: error: $4 of 'var_declaration' has no declared type
+    104 | ...($1, $2, $4);}
+        |             ^~
+  cminus.y:111.129-130: error: $2 of 'fun_declaration' has no declared type
+    111 | ...Node($1, $2, $4, $6);}
+        |             ^~
+  cminus.y:122.129-130: error: $2 of 'param' has no declared type
+    122 | ...tion($1, $2, 0);}
+        |             ^~
+  cminus.y:123.113-114: error: $2 of 'param' has no declared type
+    123 | ...tion($1, $2, 0);}
+        |             ^~
+  cminus.y:161.98-99: error: $2 of 'simple_expression' has no declared type
+    161 | ...pExp($1, $2, $3);}
+        |             ^~
+  cminus.y:165.78-79: error: $$ of 'relop' has no declared type
+    165 | ...        {$$ = LOWEROREQUAL;}
+        |             ^~
+  cminus.y:166.82-83: error: $$ of 'relop' has no declared type
+    166 | ...        {$$ = LOWER;}
+        |             ^~
+  cminus.y:167.82-83: error: $$ of 'relop' has no declared type
+    167 | ...        {$$ = GREATEROREQUAL;}
+        |             ^~
+  cminus.y:168.82-83: error: $$ of 'relop' has no declared type
+    168 | ...        {$$ = GREATER;}
+        |             ^~
+  cminus.y:169.82-83: error: $$ of 'relop' has no declared type
+    169 | ...        {$$ = EQUAL;}
+        |             ^~
+  cminus.y:170.82-83: error: $$ of 'relop' has no declared type
+    170 | ...        {$$ = NOTEQUAL;}
+        |             ^~
+  cminus.y:173.97-98: error: $2 of 'additive_expression' has no declared type
+    173 | ...dExp($1, $2, $3);}
+        |             ^~
+  cminus.y:177.78-79: error: $$ of 'addop' has no declared type
+    177 | ...        {$$ = ADD;}
+        |             ^~
+  cminus.y:178.78-79: error: $$ of 'addop' has no declared type
+    178 | ...        {$$ = SUBSTRACT;}
+        |             ^~
+  cminus.y:181.95-96: error: $2 of 'term' has no declared type
+    181 | ...Term($1, $2, $3);}
+        |             ^~
+  cminus.y:185.78-79: error: $$ of 'mulop' has no declared type
+    185 | ...        {$$ = MULTIPLY;}
+        |             ^~
+  cminus.y:186.78-79: error: $$ of 'mulop' has no declared type
+    186 | ...        {$$ = DIVIDE;}
+        |             ^~
+  cminus.y:192.94-95: error: $1 of 'factor' has no declared type
+    192 | ...wNumNode($1);}
+        |             ^~
+  cminus.y:195.91-92: error: $1 of 'call' has no declared type
+    195 | ... newCall($1, $3);}
+        |             ^~
+  cminus.y:96.18-57: warning: type clash on default action: <node> != <> [-Wother]
+     96 | iteration_stmt : WHILE LPAREN expression RPAREN statement
+        |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cminus.y:129.21: warning: empty rule for typed nonterminal, and no action [-Wother]
+    129 | local_declarations : 
+        |                     ^
+  cminus.y:133.17: warning: empty rule for typed nonterminal, and no action [-Wother]
+    133 | statement_list :							...
+        |                 ^
+  cminus.y:157.7-8: warning: type clash on default action: <node> != <> [-Wother]
+    157 | var : ID                                                             ...
+        |       ^~
+  cminus.y:158.7-37: warning: type clash on default action: <node> != <> [-Wother]
+    158 |     | ID LBRACKET expression RBRACKET                                ...
+        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: The command "win_flex C-Minus.lex
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: win_bison cminus.y --defines
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: :VCEnd" exited with code -1073741819.

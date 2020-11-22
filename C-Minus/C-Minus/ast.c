@@ -1,8 +1,8 @@
 #include "ast.h"
-#include <malloc.h>
-#include <string.h>
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <assert.h>
+#include <string.h>
 
 Node* createDefaultNode(const char* nodeName, unsigned int linksCount)
 {
@@ -43,6 +43,7 @@ Node* createListNode(const char* listName, Node* firstLink)
 	retNode->links[0] = firstLink;
 	return retNode;
 }
+
 void addLinkToList(Node* listNode, Node* linkToAdd)
 {
 	unsigned int numLinks = listNode->numLinks;
@@ -50,15 +51,44 @@ void addLinkToList(Node* listNode, Node* linkToAdd)
 	listNode->links[numLinks] = linkToAdd;
 }
 
-Node* newFunDec(Node* typeSpecifier, const char* functionName, Node* paramsList, Node* compoundStatement)
+Node* createProgramUnitNode(Node* declaration)
 {
+	Node* retNode = createDefaultNode("ProgramUnit", 1);
+	if (retNode)
+	{
+		retNode->links[0] = declaration;
+	}
 
+	return retNode;
+}
+
+Node* createDeclarationNode(Node* varFunDeclaration)
+{
+	Node* retNode = createDefaultNode("Declaration", 1);
+	if (retNode)
+	{
+		retNode->links[0] = varFunDeclaration;
+	}
+	return retNode;
+}
+
+Node* createIfStatement(Node* expression, Node* thenStatement, Node* elseStatement)
+{
+	Node* retNode = createDefaultNode("IfStatement", 3);
+	retNode->links[0] = expression;
+	retNode->links[1] = thenStatement;
+	retNode->links[2] = elseStatement;
+	return retNode;
+}
+
+Node* createFunctionDeclarationNode(Node* typeSpecifier, const char* functionName, Node* params, Node* compoundStatement)
+{
 	Node* retNode = createDefaultNode("FunctionDefinition", 3);
 
 	if (retNode)
 	{
 		retNode->links[0] = typeSpecifier;
-		retNode->links[1] = paramsList;
+		retNode->links[1] = params;
 		retNode->links[2] = compoundStatement;
 		if (functionName)
 			strcpy(retNode->extraData, functionName);
@@ -75,21 +105,8 @@ Node* createTypeSpecifier(const char* typeName)
 	return retVal;
 }
 
-
-Node* newDecList(Node* decList, Node* declaration) {
-
-}
-
-Node* newDec(Node* declaration, int type) {
-	Node* retNode = createDefaultNode("Declaration", 1);
-	if (retNode)
-	{
-		retNode->links[0] = declaration;
-	}
-	return retNode;
-}
-
-Node* newVarDec(Node* typeSpecifier, const char* varName, int value) {
+Node* createVarDeclaration(Node* typeSpecifier, const char* varName, int value)
+{
 	Node* retNode = createDefaultNode("VariableDeclaration", 2);
 
 	if (retNode)
@@ -104,89 +121,49 @@ Node* newVarDec(Node* typeSpecifier, const char* varName, int value) {
 	return retNode;
 }
 
-Node* newTypeSpe(const char* typeName)
+Node* createCompoundStatement(Node* localDeclList, Node* statementList)
 {
-	Node* retVal = createDefaultNode("TypeSpecifier", 0);
-	if (typeName)
-		sprintf(retVal->extraData, "%s", typeName);
-	return retVal;
-}
-
-Node* newParams(Node* paramList, Node* typeSpecifier) {
-
-}
-
-Node* newParamList(Node* paramList, Node* param) {
-
-}
-
-Node* newParam(Node* typeSpecifier, char* ID) {
-
-}
-
-Node* newCompound(Node* localDecs, Node* stmtList) {
 	Node* retNode = createDefaultNode("CompoundStatement", 2);
-	retNode->links[0] = localDecs;
-	retNode->links[1] = stmtList;
+	retNode->links[0] = localDeclList;
+	retNode->links[1] = statementList;
 	return retNode;
 }
 
-Node* newLocalDecs(Node* localDecs, Node* varDec) {
-
-}
-
-Node* newStmtList(Node* stmtList, Node* stmt) {
-
-}
-
-Node* newExpStmt(Node* expression) {
-
-}
-
-Node* newSelectStmt(Node* expression, Node* stmt, Node* elseStmt) {
-
-}
-
-Node* newIterStmt(Node* expression, Node* stmt) {
-
-}
-
-Node* newRetStmt(Node* expression) {
-
-}
-
-Node* newAssignExp(Node* var, Node* expressio) {
-
-}
-
-Node* newVar(char* ID)
+Node* createStatementNode(Node* statementDeclaration)
 {
-	return NULL;
+	Node* retNode = createDefaultNode("Statement", 1);
+	retNode->links[0] = statementDeclaration;
+	return retNode;
 }
 
-Node* newSimpExp(Node addExp1, int relop, Node* addExp2) {
-
+Node* createExpressionStatement(Node* expressionDeclaration)
+{
+	Node* retNode = createDefaultNode("ExpressionStatement", 1);
+	retNode->links[0] = expressionDeclaration;
+	return retNode;
 }
 
-Node* newAddExp(Node* addExp, int addop, Node* term) {
-
+Node* createReturnStatement(Node* expressionDeclaration)
+{
+	Node* retNode = createDefaultNode("ReturnStatement", 1);
+	retNode->links[0] = expressionDeclaration;
+	return retNode;
 }
 
-Node* newTerm(Node* term, int mulop, Node* factor) {
-
+Node* createExpressionNode(Node* expressionDeclaration)
+{
+	Node* retNode = createDefaultNode("Expression", 1);
+	retNode->links[0] = expressionDeclaration;
+	return retNode;
 }
 
-Node* newNumNode(int num) {
-
+Node* createParametersDeclarationNode(Node* parametersDeclaration)
+{
+	Node* retNode = createDefaultNode("Parameters", 1);
+	retNode->links[0] = parametersDeclaration;
+	return retNode;
 }
 
-Node* newCall(char ID, Node* args) {
-
-}
-
-Node* newArgList(Node* argList, Node* expression) {
-
-}
 
 void printAst(Node* ast, int level)
 {

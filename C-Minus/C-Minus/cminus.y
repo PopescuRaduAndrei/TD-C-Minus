@@ -48,120 +48,120 @@
 %token LBRACE 
 %token RBRACE 
 %token COMMA 
-%token NUM 
 %token ID
+%token NUM
 
-%token <name>ID
-%token <value>NUM
-
-%type <node> program  
+%type <node> program 
 %type <node> declaration_list
-%type <node> declaration 
-%type <node> var_declaration  
-%type <node> fun_declaration
-%type <node> type_specifier 
-%type <node> local_declarations  
+%type <node> declaration
+%type <node> var_declaration
+%type <node> type_specifier
+%type <node> fun_declaration 
+%type <node> params
+%type <node> params_list
+%type <node> param
+%type <node> compound_stmt
+%type <node> local_declarations
 %type <node> statement_list
 %type <node> statement
-%type <node> expression_stmt   
+%type <node> expression_stmt
 %type <node> selection_stmt
 %type <node> iteration_stmt
-%type <node> return_stmt 
-%type <node> expression 
+%type <node> return_stmt
+%type <node> expression
 %type <node> var
-%type <node> simple_expression    
+%type <node> simple_expression
 %type <node> additive_expression
 %type <node> term
 %type <node> factor
 %type <node> call
 %type <node> args 
 %type <node> arg_list
-%type <node> relop  
-%type <node> addop
-%type <node> mulop
 
 %start program
 
 %%
 
-program : declaration_list {astRoot = $1;}
-                                                                  
-declaration_list : declaration_list declaration             {$$ = newDecList($1, $2);}
-                 | declaration                              {$$ = $1;}
-                 ;
-
-declaration  : var_declaration                              {$$ = $1;}
-	         | fun_declaration                              {$$ = $1;}
-             ;
-
-var_declaration : type_specifier ID                         {$$ = newVarDec($1, $2);}
-                | type_specifier ID LBRACKET NUM RBRACKET   {$$ = newArrayDec($1, $2, $4);}
-                ;
-
-type_specifier : INT {$$ = newTypeSpe(TYPE_INTEGER);}
-               | VOID {$$ = newTypeSpe(TYPE_VOID);}
-	           ;
-
-fun_declaration : type_specifier ID LPAREN params RPAREN compound_stmt {$$ = newFunDec($1, $2, $4, $6);}	              
-                ;
-
-params : param_list                                         {$$ = $1;}
-		| VOID ;                                            {$$ = NULL;}
-
-param_list : param_list COMMA param                         {$$ = newParamList($1, $3);}
-           | param                                          {$$ = newParamList(NULL, $1);}		            
-	        ;
-
-param : type_specifier ID                                   {$$ = newParam($1, $2, 0);}                                         
-      | type_specifier ID LBRACKET RBRACKET                 {$$ = newParam($1, $2, 1);}
-      ;
-
-compound_stmt : LBRACE local_declarations statement_list RBRACE {$$ = newCompound($2, $3);}
-              ;
-
-local_declarations : local_declarations var_declaration {$$ = newLocalDecs($1, $2);}
-                   |                                    {$$ = NULL;}
-                   ;
-
-statement_list : statement_list statement               {$$ = newStmtList($1, $2);}
-               |                                        {$$ = NULL;}
-               ;
-
-statement : expression_stmt                             {$$ = $1;}
-          | compound_stmt                               {$$ = $1;}
-          | selection_stmt                              {$$ = $1;}
-          | iteration_stmt                              {$$ = $1;}
-          | return_stmt                                 {$$ = $1;}
-		  ;
-
-expression_stmt : expression END_OF_INSTRUCTION         {$$ = $1;}
-                | END_OF_INSTRUCTION                    {$$ = NULL;}
+program: declaration_list								{astRoot = createProgramUnitNode($1); $$ = astRoot;}
+	   ;
+	   
+declaration_list: declaration declaration_list			{addLinkToList($$, $1); $$ = $2;}
+                | declaration							{addLinkToList($$, $1);}
 				;
-
-selection_stmt : IF  LPAREN expression RPAREN  statement                    {$$ = newSelectStmt($3,$5,NULL);}
-               | IF  LPAREN expression RPAREN  statement ELSE statement	    {$$ = newSelectStmt($3,$5,$7);}				 	          
-               ;
-
-iteration_stmt : WHILE LPAREN expression RPAREN statement                   {$$ = newIterStmt($3, $5);}    
-                 ;
 				
-
-return_stmt : RETURN END_OF_INSTRUCTION                                     {$$ = newRetStmt(NULL);}
-            | RETURN expression END_OF_INSTRUCTION                          {$$ = newRetStmt($2);}
+selection_stmt : IF LPAREN expression RPAREN statement							{ $$ = createIfStatement($3, $5, NULL);}
+			   | IF LPAREN expression RPAREN statement ELSE statement			{ $$ = createIfStatement($3, $5, $7);}
+			   ;
+			   
+iteration_stmt : WHILE LPAREN expression RPAREN statement
+				;
+				
+declaration : var_declaration			{$$ = createDeclarationNode($1);}
+            | fun_declaration			{$$ = createDeclarationNode($1);}
             ;
+			
+var_declaration : type_specifier ID END_OF_INSTRUCTION 									{$$ = createVarDeclaration($1, $2, 0);}
+				| type_specifier ID LBRACKET NUM RBRACKET END_OF_INSTRUCTION			{$$ = createVarDeclaration($1, $2, $4);}
+                ;
 
-expression : var ASSIGN expression                                          {$$ = newAssignExp($1, $3);}
-           | simple_expression                                              {$$ = $1;}
-           ;
+type_specifier : INT			{$$ = createTypeSpecifier("INT");}		
+				| VOID			{$$ = createTypeSpecifier("VOID");}
+				;
+				
+fun_declaration : type_specifier ID LPAREN params RPAREN compound_stmt			{$$ = createFunctionDeclarationNode($1, $2, $4, $6);}
+                ;
+				
+params : params_list			{$$ = createParametersDeclarationNode($1);}
+	   | VOID					{$$ = createParametersDeclarationNode(NULL);}
+	   ;
+	   
+params_list : params_list COMMA param			{$$ = $1;addLinkToList($$, $3);}
+			| param								{$$ = createListNode("ParametersList", $1);}
+			;
+			
+param : type_specifier ID									{ $$ = createVarDeclaration($1, $2, 0);}
+	  | type_specifier ID LBRACKET RBRACKET					{ $$ = createVarDeclaration($1, $2, 0);}
+	  ;
+	  
+compound_stmt : LBRACE local_declarations statement_list RBRACE		{$$ = createCompoundStatement($2, $3);}
+			  ;
 
-var : ID                                                                    {$$ = newVar($1);}
-    | ID LBRACKET expression RBRACKET                                       {$$ = newArrayVar($1, $3);}
+local_declarations : 
+				   |local_declarations var_declaration					{$$ = $1; addLinkToList($$, $2); }	
+				   ;
+				   
+statement_list :														
+			   | statement_list statement								{$$ = $1;addLinkToList($$, $2);}	
+			   ;
+
+statement : expression_stmt					{$$ = createStatementNode($1);}
+		  | compound_stmt					{$$ = createStatementNode($1);}
+		  | selection_stmt					{$$ = createStatementNode($1);}
+		  | iteration_stmt					{$$ = createStatementNode($1);}
+		  | return_stmt						{$$ = createStatementNode($1);}
+		  ;
+		  
+expression_stmt : expression END_OF_INSTRUCTION 			{$$ = createExpressionStatement($1);}
+				| END_OF_INSTRUCTION 						{$$ = createExpressionStatement(NULL);}
+				;
+			   
+
+return_stmt : RETURN END_OF_INSTRUCTION 					{$$ = createReturnStatement(NULL);}
+			| RETURN expression END_OF_INSTRUCTION 			{$$ = createReturnStatement($2);}
+			;
+			
+expression : var ASSIGN expression			{addLinkToList($$, $1);$$ = $3;}
+		   | simple_expression				{$$ = createExpressionNode($1);}
+		   ;
+		   
+var : ID                                                                
+    | ID LBRACKET expression RBRACKET                                       
     ;
-
+	
 simple_expression : additive_expression relop additive_expression           {$$ = newSimpExp($1, $2, $3);}
                   | additive_expression                                     {$$ = $1;}
                   ;
-
+				
 relop : LOWEROREQUAL                                                        {$$ = LOWEROREQUAL;}
 	  | LOWER                                                               {$$ = LOWER;}
 	  | GREATEROREQUAL                                                      {$$ = GREATEROREQUAL;}
@@ -202,6 +202,7 @@ args : arg_list                                                             {$$ 
 arg_list : arg_list END_OF_INSTRUCTION expression                           {$$ = newArgList($1, $3);}
          | expression                                                       {$$ = $1;}
          ;
+
 
 %%
 

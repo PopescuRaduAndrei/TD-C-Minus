@@ -8,9 +8,9 @@
 %}
 
 %union{
-	Node *node;
+	struct Node* node;
 	char* strings;
-	int intVal;
+	int value;
 }
 
 %token END 
@@ -51,13 +51,34 @@
 %token NUM 
 %token ID
 
-%type <node> program declaration_list declaration 
-%type <node> var_declaration fun_declaration type_specifier 
-%type <node> local_declarations statement_list statement
-%type <node> expression_stmt selection_stmt iteration_stmt return_stmt 
-%type <node> expression var
-%type <node> simple_expression additive_expression term factor call args arg_list
-%type <value> relop addop mulop
+%token <name>ID
+%token <value>NUM
+
+%type <node> program  
+%type <node> declaration_list
+%type <node> declaration 
+%type <node> var_declaration  
+%type <node> fun_declaration
+%type <node> type_specifier 
+%type <node> local_declarations  
+%type <node> statement_list
+%type <node> statement
+%type <node> expression_stmt   
+%type <node> selection_stmt
+%type <node> iteration_stmt
+%type <node> return_stmt 
+%type <node> expression 
+%type <node> var
+%type <node> simple_expression    
+%type <node> additive_expression
+%type <node> term
+%type <node> factor
+%type <node> call
+%type <node> args 
+%type <node> arg_list
+%type <node> relop  
+%type <node> addop
+%type <node> mulop
 
 %start program
 

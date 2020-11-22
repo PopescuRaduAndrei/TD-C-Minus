@@ -4,11 +4,11 @@
 #define MAX_Node_TYPE 50
 #define MAX_EXTRA_DATA 50
 
-typedef struct Node {
+typedef struct node {
 	char type[MAX_Node_TYPE];
 	int numLinks;
 	char extraData[MAX_EXTRA_DATA];
-	struct Node* links;
+	struct Node** links;
 } Node;
 
 Node* newDecList(Node* decList, Node* declaration);

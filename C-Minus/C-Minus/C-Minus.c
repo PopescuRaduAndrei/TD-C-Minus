@@ -3,10 +3,12 @@
 #include <stdio.h>
 #include <cminus.tab.h>
 #include <errno.h>
+#include "ast.h"
 
 extern int yyparse(void);
 extern FILE* yyin;
 extern int yylex(void);
+extern Node* astRoot;
 
 int main()
 {
@@ -84,10 +86,7 @@ int main()
 		default:
 			break;
 		}
-		/*while ((lexUnit = yylex()) != END)
-		{
-			printf(" -> TOKEN: %s\n", symbols[lexUnit]);
-		}*/
+		printAst(astRoot, 0);
 		fclose(yyin);
 	}
 	else

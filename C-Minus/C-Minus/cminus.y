@@ -8,7 +8,7 @@
 %}
 
 %union{
-	struct Node* node;
+	Node* node;
 	char* strings;
 	int value;
 }
@@ -48,9 +48,14 @@
 %token LBRACE 
 %token RBRACE 
 %token COMMA 
-%token ID
-%token NUM
 
+%token <strings> ID
+%token <value> NUM
+
+
+%type <node> relop
+%type <node> addop
+%type <node> mulop
 %type <node> program 
 %type <node> declaration_list
 %type <node> declaration

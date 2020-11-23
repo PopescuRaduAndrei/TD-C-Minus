@@ -483,8 +483,8 @@ char *yytext;
 #line 1 "C-Minus.lex"
 #line 8 "C-Minus.lex"
 #include <stdio.h>
-#include "cminus.tab.h"
 #include "ast.h"
+#include "cminus.tab.h"
 
 void count();
 void badChars();

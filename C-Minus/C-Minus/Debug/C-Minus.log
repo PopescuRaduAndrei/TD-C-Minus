@@ -1,81 +1,37 @@
-﻿  cminus.y:103.152-153: error: $2 of 'var_declaration' has no declared type
-    103 | ...tion($1, $2, 0);}
-        |             ^~
-  cminus.y:104.144-145: error: $2 of 'var_declaration' has no declared type
-    104 | ...tion($1, $2, $4);}
-        |             ^~
-  cminus.y:104.148-149: error: $4 of 'var_declaration' has no declared type
-    104 | ...($1, $2, $4);}
-        |             ^~
-  cminus.y:111.129-130: error: $2 of 'fun_declaration' has no declared type
-    111 | ...Node($1, $2, $4, $6);}
-        |             ^~
-  cminus.y:122.129-130: error: $2 of 'param' has no declared type
-    122 | ...tion($1, $2, 0);}
-        |             ^~
-  cminus.y:123.113-114: error: $2 of 'param' has no declared type
-    123 | ...tion($1, $2, 0);}
-        |             ^~
-  cminus.y:161.98-99: error: $2 of 'simple_expression' has no declared type
-    161 | ...pExp($1, $2, $3);}
-        |             ^~
-  cminus.y:165.78-79: error: $$ of 'relop' has no declared type
-    165 | ...        {$$ = LOWEROREQUAL;}
-        |             ^~
-  cminus.y:166.82-83: error: $$ of 'relop' has no declared type
-    166 | ...        {$$ = LOWER;}
-        |             ^~
-  cminus.y:167.82-83: error: $$ of 'relop' has no declared type
-    167 | ...        {$$ = GREATEROREQUAL;}
-        |             ^~
-  cminus.y:168.82-83: error: $$ of 'relop' has no declared type
-    168 | ...        {$$ = GREATER;}
-        |             ^~
-  cminus.y:169.82-83: error: $$ of 'relop' has no declared type
-    169 | ...        {$$ = EQUAL;}
-        |             ^~
-  cminus.y:170.82-83: error: $$ of 'relop' has no declared type
-    170 | ...        {$$ = NOTEQUAL;}
-        |             ^~
-  cminus.y:173.97-98: error: $2 of 'additive_expression' has no declared type
-    173 | ...dExp($1, $2, $3);}
-        |             ^~
-  cminus.y:177.78-79: error: $$ of 'addop' has no declared type
-    177 | ...        {$$ = ADD;}
-        |             ^~
-  cminus.y:178.78-79: error: $$ of 'addop' has no declared type
-    178 | ...        {$$ = SUBSTRACT;}
-        |             ^~
-  cminus.y:181.95-96: error: $2 of 'term' has no declared type
-    181 | ...Term($1, $2, $3);}
-        |             ^~
-  cminus.y:185.78-79: error: $$ of 'mulop' has no declared type
-    185 | ...        {$$ = MULTIPLY;}
-        |             ^~
-  cminus.y:186.78-79: error: $$ of 'mulop' has no declared type
-    186 | ...        {$$ = DIVIDE;}
-        |             ^~
-  cminus.y:192.94-95: error: $1 of 'factor' has no declared type
-    192 | ...wNumNode($1);}
-        |             ^~
-  cminus.y:195.91-92: error: $1 of 'call' has no declared type
-    195 | ... newCall($1, $3);}
-        |             ^~
-  cminus.y:96.18-57: warning: type clash on default action: <node> != <> [-Wother]
-     96 | iteration_stmt : WHILE LPAREN expression RPAREN statement
+﻿  cminus.y:101.18-57: warning: type clash on default action: <node> != <> [-Wother]
+    101 | iteration_stmt : WHILE LPAREN expression RPAREN statement
         |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  cminus.y:129.21: warning: empty rule for typed nonterminal, and no action [-Wother]
-    129 | local_declarations : 
+  cminus.y:134.21: warning: empty rule for typed nonterminal, and no action [-Wother]
+    134 | local_declarations : 
         |                     ^
-  cminus.y:133.17: warning: empty rule for typed nonterminal, and no action [-Wother]
-    133 | statement_list :							...
+  cminus.y:138.17: warning: empty rule for typed nonterminal, and no action [-Wother]
+    138 | statement_list :							...
         |                 ^
-  cminus.y:157.7-8: warning: type clash on default action: <node> != <> [-Wother]
-    157 | var : ID                                                             ...
+  cminus.y:162.7-8: warning: type clash on default action: <node> != <strings> [-Wother]
+    162 | var : ID                                                             ...
         |       ^~
-  cminus.y:158.7-37: warning: type clash on default action: <node> != <> [-Wother]
-    158 |     | ID LBRACKET expression RBRACKET                                ...
+  cminus.y:163.7-37: warning: type clash on default action: <node> != <strings> [-Wother]
+    163 |     | ID LBRACKET expression RBRACKET                                ...
         |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: The command "win_flex C-Minus.lex
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: win_bison cminus.y --defines
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: :VCEnd" exited with code -1073741819.
+cminus.y : warning : 1 shift/reduce conflict [-Wconflicts-sr]
+  cminus.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
+  C-Minus.c
+  ast.c
+  cminus.tab.c
+cminus.y(170,105): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(171,102): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(172,111): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(173,104): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(174,102): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(175,105): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(182,96): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(183,102): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(190,101): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+cminus.y(191,99): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
+  lex.yy.c
+C-Minus.lex(17,10): warning C4013: 'comment' undefined; assuming extern returning int
+lex.yy.c(1515,46): warning C4013: 'isatty' undefined; assuming extern returning int
+  Generating Code...
+D:\An IV\TD\TD-C-Compiler\C-Minus\C-Minus\C-Minus.lex(79): warning C4716: 'comment': must return a value
+D:\An IV\TD\TD-C-Compiler\C-Minus\C-Minus\cminus.y(216): warning C4716: 'yyerror': must return a value
+  C-Minus.vcxproj -> D:\An IV\TD\TD-C-Compiler\C-Minus\Debug\C-Minus.exe

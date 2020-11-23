@@ -8,7 +8,7 @@ typedef struct node {
 	char type[MAX_Node_TYPE];
 	int numLinks;
 	char extraData[MAX_EXTRA_DATA];
-	struct Node** links;
+	struct node** links;
 } Node;
 
 Node* createDefaultNode(const char* nodeName, unsigned int linksCount);
@@ -27,11 +27,12 @@ Node* createExpressionStatement(Node* expressionDeclaration);
 Node* createReturnStatement(Node* expressionDeclaration);
 Node* createExpressionNode(Node* expressionDeclaration);
 Node* createParametersDeclarationNode(Node* parametersDeclaration);
-Node* newSimpExp(Node* addExp1, int relop, Node* addExp2);
-Node* newAddExp(Node* addExp, int addop, Node* term);
-Node* newTerm(Node* term, int mulop, Node* factor);
+Node* newSimpExp(Node* addExp1, Node* relop, Node* addExp2);
+Node* newAddExp(Node* addExp, Node* addop, Node* term);
+Node* newTerm(Node* term, Node* mulop, Node* factor);
 Node* newCall(char* ID, Node* args);
 Node* newArgList(Node* argList, Node* expression);
+Node* newNumNode(int val);
 
 void printAst(Node* ast, int level);
 #endif

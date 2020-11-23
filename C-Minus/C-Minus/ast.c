@@ -164,6 +164,36 @@ Node* createParametersDeclarationNode(Node* parametersDeclaration)
 	return retNode;
 }
 
+Node* newSimpExp(Node* addExp1, Node* relop, Node* addExp2)
+{
+	return NULL;
+}
+
+Node* newAddExp(Node* addExp, Node* addop, Node* term)
+{
+	return NULL;
+}
+
+Node* newTerm(Node* term, Node* mulop, Node* factor)
+{
+	return NULL;
+}
+
+Node* newCall(char* ID, Node* args)
+{
+	return NULL;
+}
+
+Node* newArgList(Node* argList, Node* expression)
+{
+	return NULL;
+}
+
+Node* newNumNode(int val)
+{
+	return NULL;
+}
+
 
 void printAst(Node* ast, int level)
 {

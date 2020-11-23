@@ -89,15 +89,26 @@ extern int yydebug;
     LBRACE = 290,                  /* LBRACE  */
     RBRACE = 291,                  /* RBRACE  */
     COMMA = 292,                   /* COMMA  */
-    NUM = 293,                     /* NUM  */
-    ID = 294                       /* ID  */
+    ID = 293,                      /* ID  */
+    NUM = 294                      /* NUM  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 10 "cminus.y"
+
+	Node* node;
+	char* strings;
+	int value;
+
+#line 109 "cminus.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

@@ -483,7 +483,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  9
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   98
+#define YYLAST   96
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  40
@@ -547,11 +547,11 @@ static const yytype_uint8 yyrline[] =
 {
        0,    90,    90,    93,    94,    97,    98,   101,   104,   105,
      108,   109,   112,   113,   116,   119,   120,   123,   124,   127,
-     128,   131,   134,   135,   138,   139,   142,   143,   144,   145,
-     146,   149,   150,   154,   155,   158,   159,   162,   163,   166,
-     167,   170,   171,   172,   173,   174,   175,   178,   179,   182,
-     183,   186,   187,   190,   191,   194,   195,   196,   197,   200,
-     203,   204,   207,   208
+     128,   131,   135,   136,   140,   141,   144,   145,   146,   147,
+     148,   151,   152,   156,   157,   160,   161,   165,   166,   169,
+     170,   174,   175,   176,   177,   178,   179,   182,   183,   187,
+     188,   191,   192,   196,   197,   201,   202,   203,   204,   207,
+     210,   211,   215,   216
 };
 #endif
 
@@ -623,8 +623,8 @@ static const yytype_int8 yypact[] =
       57,    62,   -39,    35,    21,   -39,   -39,     4,     4,   -39,
       59,    50,     4,     4,   -39,     4,   -39,   -39,   -39,   -39,
      -39,   -39,   -39,   -39,     4,     4,   -39,   -39,     4,    52,
-      53,   -39,   -39,   -39,    54,    61,    55,   -39,   -39,    49,
-      21,   -39,     1,     1,   -39,     4,   -39,   -39,    73,   -39,
+      53,   -39,   -39,   -39,    54,    55,    56,   -39,   -39,    49,
+      21,   -39,     1,     1,   -39,     4,   -39,   -39,    69,   -39,
        1,   -39
 };
 
@@ -635,12 +635,12 @@ static const yytype_int8 yydefact[] =
 {
        0,    12,    13,     0,     2,     4,     8,     0,     9,     1,
        3,     0,    10,     0,     0,    13,     0,     0,    15,    18,
-       0,    19,     0,     0,     0,     0,    22,    14,    17,    11,
-      20,    24,    23,     0,     0,     0,     0,     0,     0,    32,
-       0,    21,    37,    58,    28,    29,    27,    25,    26,    30,
+       0,    19,     0,     0,     0,     0,    23,    14,    17,    11,
+      20,    25,    22,     0,     0,     0,     0,     0,     0,    32,
+       0,    21,    37,    58,    28,    29,    27,    24,    26,    30,
        0,    56,    36,    40,    48,    52,    57,     0,     0,    33,
        0,     0,    61,     0,    31,     0,    49,    50,    45,    46,
-      42,    41,    44,    43,     0,     0,    53,    54,     0,     0,
+      42,    41,    43,    44,     0,     0,    53,    54,     0,     0,
        0,    34,    55,    63,     0,    60,     0,    35,    56,    39,
       47,    51,     0,     0,    59,     0,    38,     7,     5,    62,
        0,     6
@@ -649,9 +649,9 @@ static const yytype_int8 yydefact[] =
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -39,   -39,    83,   -39,   -39,   -39,    60,   -10,   -39,   -39,
-     -39,    67,    70,   -39,   -39,   -28,   -39,   -39,   -38,    -8,
-     -39,   -39,    19,   -39,    23,   -39,    17,   -39,   -39,   -39
+     -39,   -39,    82,   -39,   -39,   -39,    58,   -10,   -39,   -39,
+     -39,    65,    71,   -39,   -39,   -28,   -39,   -39,   -38,    -8,
+     -39,   -39,    17,   -39,    19,   -39,    18,   -39,   -39,   -39
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
@@ -675,8 +675,8 @@ static const yytype_int8 yytable[] =
       76,    77,    22,    15,    66,    67,    24,    99,    68,    69,
       70,    71,    72,    73,    97,    98,    88,    88,    66,    67,
       88,    25,   101,    29,    26,    30,    57,    58,    35,    64,
-      65,    81,    82,    95,    92,    93,    94,   100,    10,    96,
-      28,    32,    27,    89,     0,    91,     0,     0,    90
+      65,    81,    82,   100,    92,    93,    94,    10,    28,    32,
+      96,    89,    95,    27,    90,     0,    91
 };
 
 static const yytype_int8 yycheck[] =
@@ -689,8 +689,8 @@ static const yytype_int8 yycheck[] =
       29,    30,    32,     9,    19,    20,    34,    95,    23,    24,
       25,    26,    27,    28,    92,    93,    74,    75,    19,    20,
       78,    33,   100,    22,    35,    34,    31,    31,    38,    22,
-      18,    22,    32,    22,    32,    32,    32,    14,     5,    34,
-      23,    31,    22,    74,    -1,    78,    -1,    -1,    75
+      18,    22,    32,    14,    32,    32,    32,     5,    23,    31,
+      34,    74,    37,    22,    75,    -1,    78
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -706,7 +706,7 @@ static const yytype_int8 yystos[] =
       58,    58,    31,    33,    22,    18,    19,    20,    23,    24,
       25,    26,    27,    28,    61,    63,    29,    30,    65,    58,
       58,    22,    32,    58,    68,    69,    58,    58,    59,    62,
-      64,    66,    32,    32,    32,    22,    34,    55,    55,    58,
+      64,    66,    32,    32,    32,    37,    34,    55,    55,    58,
       14,    55
 };
 
@@ -727,7 +727,7 @@ static const yytype_int8 yyr2[] =
 {
        0,     2,     1,     2,     1,     5,     7,     5,     1,     1,
        3,     6,     1,     1,     6,     1,     1,     3,     1,     2,
-       4,     4,     0,     2,     0,     2,     1,     1,     1,     1,
+       4,     4,     2,     0,     2,     0,     1,     1,     1,     1,
        1,     2,     1,     2,     3,     3,     1,     1,     4,     3,
        1,     1,     1,     1,     1,     1,     1,     3,     1,     1,
        1,     3,     1,     1,     1,     3,     1,     1,     1,     4,
@@ -1228,320 +1228,350 @@ yyreduce:
 #line 1229 "cminus.tab.c"
     break;
 
+  case 7: /* iteration_stmt: WHILE LPAREN expression RPAREN statement  */
+#line 101 "cminus.y"
+                                                                                                        { (yyval.node) = createIterationStatementNode((yyvsp[-2].node), (yyvsp[0].node)); }
+#line 1235 "cminus.tab.c"
+    break;
+
   case 8: /* declaration: var_declaration  */
 #line 104 "cminus.y"
                                                 {(yyval.node) = createDeclarationNode((yyvsp[0].node));}
-#line 1235 "cminus.tab.c"
+#line 1241 "cminus.tab.c"
     break;
 
   case 9: /* declaration: fun_declaration  */
 #line 105 "cminus.y"
                                                 {(yyval.node) = createDeclarationNode((yyvsp[0].node));}
-#line 1241 "cminus.tab.c"
+#line 1247 "cminus.tab.c"
     break;
 
   case 10: /* var_declaration: type_specifier ID END_OF_INSTRUCTION  */
 #line 108 "cminus.y"
                                                                                                                         {(yyval.node) = createVarDeclaration((yyvsp[-2].node), (yyvsp[-1].strings), 0);}
-#line 1247 "cminus.tab.c"
+#line 1253 "cminus.tab.c"
     break;
 
   case 11: /* var_declaration: type_specifier ID LBRACKET NUM RBRACKET END_OF_INSTRUCTION  */
 #line 109 "cminus.y"
                                                                                                                 {(yyval.node) = createVarDeclaration((yyvsp[-5].node), (yyvsp[-4].strings), (yyvsp[-2].value));}
-#line 1253 "cminus.tab.c"
+#line 1259 "cminus.tab.c"
     break;
 
   case 12: /* type_specifier: INT  */
 #line 112 "cminus.y"
                                         {(yyval.node) = createTypeSpecifier("INT");}
-#line 1259 "cminus.tab.c"
+#line 1265 "cminus.tab.c"
     break;
 
   case 13: /* type_specifier: VOID  */
 #line 113 "cminus.y"
                                                         {(yyval.node) = createTypeSpecifier("VOID");}
-#line 1265 "cminus.tab.c"
+#line 1271 "cminus.tab.c"
     break;
 
   case 14: /* fun_declaration: type_specifier ID LPAREN params RPAREN compound_stmt  */
 #line 116 "cminus.y"
                                                                                         {(yyval.node) = createFunctionDeclarationNode((yyvsp[-5].node), (yyvsp[-4].strings), (yyvsp[-2].node), (yyvsp[0].node));}
-#line 1271 "cminus.tab.c"
+#line 1277 "cminus.tab.c"
     break;
 
   case 15: /* params: params_list  */
 #line 119 "cminus.y"
                                         {(yyval.node) = createParametersDeclarationNode((yyvsp[0].node));}
-#line 1277 "cminus.tab.c"
+#line 1283 "cminus.tab.c"
     break;
 
   case 16: /* params: VOID  */
 #line 120 "cminus.y"
                                                         {(yyval.node) = createParametersDeclarationNode(NULL);}
-#line 1283 "cminus.tab.c"
+#line 1289 "cminus.tab.c"
     break;
 
   case 17: /* params_list: params_list COMMA param  */
 #line 123 "cminus.y"
                                                         {(yyval.node) = (yyvsp[-2].node);addLinkToList((yyval.node), (yyvsp[0].node));}
-#line 1289 "cminus.tab.c"
+#line 1295 "cminus.tab.c"
     break;
 
   case 18: /* params_list: param  */
 #line 124 "cminus.y"
                                                                                         {(yyval.node) = createListNode("ParametersList", (yyvsp[0].node));}
-#line 1295 "cminus.tab.c"
+#line 1301 "cminus.tab.c"
     break;
 
   case 19: /* param: type_specifier ID  */
 #line 127 "cminus.y"
                                                                                                 { (yyval.node) = createVarDeclaration((yyvsp[-1].node), (yyvsp[0].strings), 0);}
-#line 1301 "cminus.tab.c"
+#line 1307 "cminus.tab.c"
     break;
 
   case 20: /* param: type_specifier ID LBRACKET RBRACKET  */
 #line 128 "cminus.y"
                                                                                 { (yyval.node) = createVarDeclaration((yyvsp[-3].node), (yyvsp[-2].strings), 0);}
-#line 1307 "cminus.tab.c"
+#line 1313 "cminus.tab.c"
     break;
 
   case 21: /* compound_stmt: LBRACE local_declarations statement_list RBRACE  */
 #line 131 "cminus.y"
                                                                         {(yyval.node) = createCompoundStatement((yyvsp[-2].node), (yyvsp[-1].node));}
-#line 1313 "cminus.tab.c"
-    break;
-
-  case 23: /* local_declarations: local_declarations var_declaration  */
-#line 135 "cminus.y"
-                                                                                                        {(yyval.node) = (yyvsp[-1].node); addLinkToList((yyval.node), (yyvsp[0].node)); }
 #line 1319 "cminus.tab.c"
     break;
 
-  case 25: /* statement_list: statement_list statement  */
-#line 139 "cminus.y"
-                                                                                                                {(yyval.node) = (yyvsp[-1].node);addLinkToList((yyval.node), (yyvsp[0].node));}
+  case 22: /* local_declarations: local_declarations var_declaration  */
+#line 135 "cminus.y"
+                                         { (yyval.node) = (yyvsp[-1].node); addLinkToList((yyval.node), (yyvsp[0].node)); }
 #line 1325 "cminus.tab.c"
     break;
 
-  case 26: /* statement: expression_stmt  */
-#line 142 "cminus.y"
-                                                                {(yyval.node) = createStatementNode((yyvsp[0].node));}
+  case 23: /* local_declarations: %empty  */
+#line 136 "cminus.y"
+       { (yyval.node) = createListNode("LocalDeclarations", NULL); }
 #line 1331 "cminus.tab.c"
     break;
 
-  case 27: /* statement: compound_stmt  */
-#line 143 "cminus.y"
-                                                                        {(yyval.node) = createStatementNode((yyvsp[0].node));}
+  case 24: /* statement_list: statement_list statement  */
+#line 140 "cminus.y"
+                               { (yyval.node) = (yyvsp[-1].node); addLinkToList((yyval.node), (yyvsp[0].node)); }
 #line 1337 "cminus.tab.c"
     break;
 
-  case 28: /* statement: selection_stmt  */
-#line 144 "cminus.y"
-                                                                        {(yyval.node) = createStatementNode((yyvsp[0].node));}
+  case 25: /* statement_list: %empty  */
+#line 141 "cminus.y"
+       { (yyval.node) = createListNode("StatementList", NULL); }
 #line 1343 "cminus.tab.c"
     break;
 
-  case 29: /* statement: iteration_stmt  */
-#line 145 "cminus.y"
-                                                                        {(yyval.node) = createStatementNode((yyvsp[0].node));}
+  case 26: /* statement: expression_stmt  */
+#line 144 "cminus.y"
+                                                                {(yyval.node) = createStatementNode((yyvsp[0].node));}
 #line 1349 "cminus.tab.c"
     break;
 
-  case 30: /* statement: return_stmt  */
-#line 146 "cminus.y"
+  case 27: /* statement: compound_stmt  */
+#line 145 "cminus.y"
                                                                         {(yyval.node) = createStatementNode((yyvsp[0].node));}
 #line 1355 "cminus.tab.c"
     break;
 
-  case 31: /* expression_stmt: expression END_OF_INSTRUCTION  */
-#line 149 "cminus.y"
-                                                                        {(yyval.node) = createExpressionStatement((yyvsp[-1].node));}
+  case 28: /* statement: selection_stmt  */
+#line 146 "cminus.y"
+                                                                        {(yyval.node) = createStatementNode((yyvsp[0].node));}
 #line 1361 "cminus.tab.c"
     break;
 
-  case 32: /* expression_stmt: END_OF_INSTRUCTION  */
-#line 150 "cminus.y"
-                                                                                                {(yyval.node) = createExpressionStatement(NULL);}
+  case 29: /* statement: iteration_stmt  */
+#line 147 "cminus.y"
+                                                                        {(yyval.node) = createStatementNode((yyvsp[0].node));}
 #line 1367 "cminus.tab.c"
     break;
 
-  case 33: /* return_stmt: RETURN END_OF_INSTRUCTION  */
-#line 154 "cminus.y"
-                                                                                {(yyval.node) = createReturnStatement(NULL);}
+  case 30: /* statement: return_stmt  */
+#line 148 "cminus.y"
+                                                                        {(yyval.node) = createStatementNode((yyvsp[0].node));}
 #line 1373 "cminus.tab.c"
     break;
 
-  case 34: /* return_stmt: RETURN expression END_OF_INSTRUCTION  */
-#line 155 "cminus.y"
-                                                                                {(yyval.node) = createReturnStatement((yyvsp[-1].node));}
+  case 31: /* expression_stmt: expression END_OF_INSTRUCTION  */
+#line 151 "cminus.y"
+                                                                        {(yyval.node) = createExpressionStatement((yyvsp[-1].node));}
 #line 1379 "cminus.tab.c"
     break;
 
-  case 35: /* expression: var ASSIGN expression  */
-#line 158 "cminus.y"
-                                                        {addLinkToList((yyval.node), (yyvsp[-2].node));(yyval.node) = (yyvsp[0].node);}
+  case 32: /* expression_stmt: END_OF_INSTRUCTION  */
+#line 152 "cminus.y"
+                                                                                                {(yyval.node) = createExpressionStatement(NULL);}
 #line 1385 "cminus.tab.c"
     break;
 
-  case 36: /* expression: simple_expression  */
-#line 159 "cminus.y"
-                                                                {(yyval.node) = createExpressionNode((yyvsp[0].node));}
+  case 33: /* return_stmt: RETURN END_OF_INSTRUCTION  */
+#line 156 "cminus.y"
+                                                                                {(yyval.node) = createReturnStatement(NULL);}
 #line 1391 "cminus.tab.c"
     break;
 
-  case 39: /* simple_expression: additive_expression relop additive_expression  */
-#line 166 "cminus.y"
-                                                                            {(yyval.node) = newSimpExp((yyvsp[-2].node), (yyvsp[-1].node), (yyvsp[0].node));}
+  case 34: /* return_stmt: RETURN expression END_OF_INSTRUCTION  */
+#line 157 "cminus.y"
+                                                                                {(yyval.node) = createReturnStatement((yyvsp[-1].node));}
 #line 1397 "cminus.tab.c"
     break;
 
-  case 40: /* simple_expression: additive_expression  */
-#line 167 "cminus.y"
-                                                                            {(yyval.node) = (yyvsp[0].node);}
+  case 35: /* expression: var ASSIGN expression  */
+#line 160 "cminus.y"
+                                                        {addLinkToList((yyval.node), (yyvsp[-2].node));(yyval.node) = (yyvsp[0].node);}
 #line 1403 "cminus.tab.c"
     break;
 
-  case 41: /* relop: LOWEROREQUAL  */
-#line 170 "cminus.y"
-                                                                            {(yyval.node) = LOWEROREQUAL;}
+  case 36: /* expression: simple_expression  */
+#line 161 "cminus.y"
+                                                                {(yyval.node) = createExpressionNode((yyvsp[0].node));}
 #line 1409 "cminus.tab.c"
     break;
 
-  case 42: /* relop: LOWER  */
-#line 171 "cminus.y"
-                                                                                {(yyval.node) = LOWER;}
+  case 37: /* var: ID  */
+#line 165 "cminus.y"
+         { (yyval.node) = createVariableNode((yyvsp[0].strings), NULL); }
 #line 1415 "cminus.tab.c"
     break;
 
-  case 43: /* relop: GREATEROREQUAL  */
-#line 172 "cminus.y"
-                                                                                {(yyval.node) = GREATEROREQUAL;}
+  case 38: /* var: ID LBRACKET expression RBRACKET  */
+#line 166 "cminus.y"
+                                      { (yyval.node) = createVariableNode((yyvsp[-3].strings), (yyvsp[-1].node)); }
 #line 1421 "cminus.tab.c"
     break;
 
-  case 44: /* relop: GREATER  */
-#line 173 "cminus.y"
-                                                                                {(yyval.node) = GREATER;}
+  case 39: /* simple_expression: additive_expression relop additive_expression  */
+#line 169 "cminus.y"
+                                                                            {(yyval.node) = newSimpExp((yyvsp[-2].node), (yyvsp[-1].node), (yyvsp[0].node));}
 #line 1427 "cminus.tab.c"
     break;
 
-  case 45: /* relop: EQUAL  */
-#line 174 "cminus.y"
-                                                                                {(yyval.node) = EQUAL;}
+  case 40: /* simple_expression: additive_expression  */
+#line 170 "cminus.y"
+                                                                            {(yyval.node) = (yyvsp[0].node);}
 #line 1433 "cminus.tab.c"
     break;
 
-  case 46: /* relop: NOTEQUAL  */
-#line 175 "cminus.y"
-                                                                                {(yyval.node) = NOTEQUAL;}
+  case 41: /* relop: LOWEROREQUAL  */
+#line 174 "cminus.y"
+                   { (yyval.node) = createRelationalOperatorNode("<="); }
 #line 1439 "cminus.tab.c"
     break;
 
-  case 47: /* additive_expression: additive_expression addop term  */
-#line 178 "cminus.y"
-                                                                            {(yyval.node) = newAddExp((yyvsp[-2].node), (yyvsp[-1].node), (yyvsp[0].node));}
+  case 42: /* relop: LOWER  */
+#line 175 "cminus.y"
+            { (yyval.node) = createRelationalOperatorNode("<"); }
 #line 1445 "cminus.tab.c"
     break;
 
-  case 48: /* additive_expression: term  */
-#line 179 "cminus.y"
-                                                                            {(yyval.node) = (yyvsp[0].node);}
+  case 43: /* relop: GREATER  */
+#line 176 "cminus.y"
+              { (yyval.node) = createRelationalOperatorNode(">"); }
 #line 1451 "cminus.tab.c"
     break;
 
-  case 49: /* addop: ADD  */
-#line 182 "cminus.y"
-                                                                            {(yyval.node) = ADD;}
+  case 44: /* relop: GREATEROREQUAL  */
+#line 177 "cminus.y"
+                     { (yyval.node) = createRelationalOperatorNode(">="); }
 #line 1457 "cminus.tab.c"
     break;
 
-  case 50: /* addop: SUBSTRACT  */
-#line 183 "cminus.y"
-                                                                            {(yyval.node) = SUBSTRACT;}
+  case 45: /* relop: EQUAL  */
+#line 178 "cminus.y"
+            { (yyval.node) = createRelationalOperatorNode("=="); }
 #line 1463 "cminus.tab.c"
     break;
 
-  case 51: /* term: term mulop factor  */
-#line 186 "cminus.y"
-                                                                            {(yyval.node) = newTerm((yyvsp[-2].node), (yyvsp[-1].node), (yyvsp[0].node));}
+  case 46: /* relop: NOTEQUAL  */
+#line 179 "cminus.y"
+               { (yyval.node) = createRelationalOperatorNode("!="); }
 #line 1469 "cminus.tab.c"
     break;
 
-  case 52: /* term: factor  */
-#line 187 "cminus.y"
-                                                                            {(yyval.node) = (yyvsp[0].node);}
+  case 47: /* additive_expression: additive_expression addop term  */
+#line 182 "cminus.y"
+                                                                            {(yyval.node) = newAddExp((yyvsp[-2].node), (yyvsp[-1].node), (yyvsp[0].node));}
 #line 1475 "cminus.tab.c"
     break;
 
-  case 53: /* mulop: MULTIPLY  */
-#line 190 "cminus.y"
-                                                                            {(yyval.node) = MULTIPLY;}
+  case 48: /* additive_expression: term  */
+#line 183 "cminus.y"
+                                                                            {(yyval.node) = (yyvsp[0].node);}
 #line 1481 "cminus.tab.c"
     break;
 
-  case 54: /* mulop: DIVIDE  */
-#line 191 "cminus.y"
-                                                                            {(yyval.node) = DIVIDE;}
+  case 49: /* addop: ADD  */
+#line 187 "cminus.y"
+          { (yyval.node) = createAddSubOperatorNode("+"); }
 #line 1487 "cminus.tab.c"
     break;
 
-  case 55: /* factor: LPAREN expression RPAREN  */
-#line 194 "cminus.y"
-                                                                            {(yyval.node) = (yyvsp[-1].node);}
+  case 50: /* addop: SUBSTRACT  */
+#line 188 "cminus.y"
+                { (yyval.node) = createAddSubOperatorNode("-"); }
 #line 1493 "cminus.tab.c"
     break;
 
-  case 56: /* factor: var  */
-#line 195 "cminus.y"
-                                                                            {(yyval.node) = (yyvsp[0].node);}
+  case 51: /* term: term mulop factor  */
+#line 191 "cminus.y"
+                                                                            {(yyval.node) = newTerm((yyvsp[-2].node), (yyvsp[-1].node), (yyvsp[0].node));}
 #line 1499 "cminus.tab.c"
     break;
 
-  case 57: /* factor: call  */
-#line 196 "cminus.y"
+  case 52: /* term: factor  */
+#line 192 "cminus.y"
                                                                             {(yyval.node) = (yyvsp[0].node);}
 #line 1505 "cminus.tab.c"
     break;
 
-  case 58: /* factor: NUM  */
-#line 197 "cminus.y"
-                                                                            {(yyval.node) = newNumNode((yyvsp[0].value));}
+  case 53: /* mulop: MULTIPLY  */
+#line 196 "cminus.y"
+               { (yyval.node) = createMulDivOperatorNode("*"); }
 #line 1511 "cminus.tab.c"
     break;
 
-  case 59: /* call: ID LPAREN args RPAREN  */
-#line 200 "cminus.y"
-                                                                            {(yyval.node) = newCall((yyvsp[-3].strings), (yyvsp[-1].node));}
+  case 54: /* mulop: DIVIDE  */
+#line 197 "cminus.y"
+             { (yyval.node) = createMulDivOperatorNode("/"); }
 #line 1517 "cminus.tab.c"
     break;
 
-  case 60: /* args: arg_list  */
-#line 203 "cminus.y"
-                                                                            {(yyval.node) = (yyvsp[0].node);}
+  case 55: /* factor: LPAREN expression RPAREN  */
+#line 201 "cminus.y"
+                                                                            {(yyval.node) = (yyvsp[-1].node);}
 #line 1523 "cminus.tab.c"
     break;
 
-  case 61: /* args: %empty  */
-#line 204 "cminus.y"
-                                                                                {(yyval.node) = NULL;}
+  case 56: /* factor: var  */
+#line 202 "cminus.y"
+                                                                            {(yyval.node) = (yyvsp[0].node);}
 #line 1529 "cminus.tab.c"
     break;
 
-  case 62: /* arg_list: arg_list END_OF_INSTRUCTION expression  */
-#line 207 "cminus.y"
-                                                                            {(yyval.node) = newArgList((yyvsp[-2].node), (yyvsp[0].node));}
+  case 57: /* factor: call  */
+#line 203 "cminus.y"
+                                                                            {(yyval.node) = (yyvsp[0].node);}
 #line 1535 "cminus.tab.c"
     break;
 
-  case 63: /* arg_list: expression  */
-#line 208 "cminus.y"
-                                                                            {(yyval.node) = (yyvsp[0].node);}
+  case 58: /* factor: NUM  */
+#line 204 "cminus.y"
+                                                                            {(yyval.node) = newNumNode(NULL, (yyvsp[0].value));}
 #line 1541 "cminus.tab.c"
     break;
 
+  case 59: /* call: ID LPAREN args RPAREN  */
+#line 207 "cminus.y"
+                                                                            {(yyval.node) = newCall((yyvsp[-3].strings), (yyvsp[-1].node));}
+#line 1547 "cminus.tab.c"
+    break;
 
-#line 1545 "cminus.tab.c"
+  case 60: /* args: arg_list  */
+#line 210 "cminus.y"
+                                                                            {(yyval.node) = (yyvsp[0].node);}
+#line 1553 "cminus.tab.c"
+    break;
+
+  case 61: /* args: %empty  */
+#line 211 "cminus.y"
+                                                                                {(yyval.node) = NULL;}
+#line 1559 "cminus.tab.c"
+    break;
+
+  case 62: /* arg_list: arg_list COMMA expression  */
+#line 215 "cminus.y"
+                                { (yyval.node) = (yyvsp[-2].node); addLinkToList((yyval.node), (yyvsp[0].node)); }
+#line 1565 "cminus.tab.c"
+    break;
+
+  case 63: /* arg_list: expression  */
+#line 216 "cminus.y"
+                 { (yyval.node) = createListNode("ArgumentsList", (yyvsp[0].node)); }
+#line 1571 "cminus.tab.c"
+    break;
+
+
+#line 1575 "cminus.tab.c"
 
       default: break;
     }
@@ -1735,9 +1765,11 @@ yyreturn:
   return yyresult;
 }
 
-#line 212 "cminus.y"
+#line 220 "cminus.y"
 
 
-int yyerror(char *c){
-    printf("Error");
-}
+int yyerror(char * s) 
+{    
+	printf ( "%s\n", s); 
+	return 0;
+}  

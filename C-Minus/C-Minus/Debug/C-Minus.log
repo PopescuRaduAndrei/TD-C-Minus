@@ -1,37 +1,9 @@
-﻿  cminus.y:101.18-57: warning: type clash on default action: <node> != <> [-Wother]
-    101 | iteration_stmt : WHILE LPAREN expression RPAREN statement
-        |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  cminus.y:134.21: warning: empty rule for typed nonterminal, and no action [-Wother]
-    134 | local_declarations : 
-        |                     ^
-  cminus.y:138.17: warning: empty rule for typed nonterminal, and no action [-Wother]
-    138 | statement_list :							...
-        |                 ^
-  cminus.y:162.7-8: warning: type clash on default action: <node> != <strings> [-Wother]
-    162 | var : ID                                                             ...
-        |       ^~
-  cminus.y:163.7-37: warning: type clash on default action: <node> != <strings> [-Wother]
-    163 |     | ID LBRACKET expression RBRACKET                                ...
-        |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-cminus.y : warning : 1 shift/reduce conflict [-Wconflicts-sr]
+﻿cminus.y : warning : 1 shift/reduce conflict [-Wconflicts-sr]
   cminus.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
-  C-Minus.c
   ast.c
+  C-Minus.c
   cminus.tab.c
-cminus.y(170,105): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(171,102): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(172,111): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(173,104): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(174,102): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(175,105): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(182,96): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(183,102): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(190,101): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
-cminus.y(191,99): warning C4047: '=': 'Node *' differs in levels of indirection from 'int'
   lex.yy.c
-C-Minus.lex(17,10): warning C4013: 'comment' undefined; assuming extern returning int
-lex.yy.c(1515,46): warning C4013: 'isatty' undefined; assuming extern returning int
+lex.yy.c(1511,46): warning C4013: 'isatty' undefined; assuming extern returning int
   Generating Code...
-D:\An IV\TD\TD-C-Compiler\C-Minus\C-Minus\C-Minus.lex(79): warning C4716: 'comment': must return a value
-D:\An IV\TD\TD-C-Compiler\C-Minus\C-Minus\cminus.y(216): warning C4716: 'yyerror': must return a value
   C-Minus.vcxproj -> D:\An IV\TD\TD-C-Compiler\C-Minus\Debug\C-Minus.exe

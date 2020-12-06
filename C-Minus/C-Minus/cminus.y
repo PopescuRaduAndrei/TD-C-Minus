@@ -98,7 +98,7 @@ selection_stmt : IF LPAREN expression RPAREN statement							{ $$ = createIfStat
 			   | IF LPAREN expression RPAREN statement ELSE statement			{ $$ = createIfStatement($3, $5, $7);}
 			   ;
 			   
-iteration_stmt : WHILE LPAREN expression RPAREN statement
+iteration_stmt : WHILE LPAREN expression RPAREN statement						{ $$ = createIterationStatementNode($3, $5); }
 				;
 				
 declaration : var_declaration			{$$ = createDeclarationNode($1);}
@@ -109,7 +109,7 @@ var_declaration : type_specifier ID END_OF_INSTRUCTION 									{$$ = createVarD
 				| type_specifier ID LBRACKET NUM RBRACKET END_OF_INSTRUCTION			{$$ = createVarDeclaration($1, $2, $4);}
                 ;
 
-type_specifier : INT			{$$ = createTypeSpecifier("INT");}		
+type_specifier : INT			{$$ = createTypeSpecifier("INT");}
 				| VOID			{$$ = createTypeSpecifier("VOID");}
 				;
 				
@@ -131,13 +131,15 @@ param : type_specifier ID									{ $$ = createVarDeclaration($1, $2, 0);}
 compound_stmt : LBRACE local_declarations statement_list RBRACE		{$$ = createCompoundStatement($2, $3);}
 			  ;
 
-local_declarations : 
-				   |local_declarations var_declaration					{$$ = $1; addLinkToList($$, $2); }	
-				   ;
+local_declarations
+    : local_declarations var_declaration { $$ = $1; addLinkToList($$, $2); }
+    |  { $$ = createListNode("LocalDeclarations", NULL); }
+    ;
 				   
-statement_list :														
-			   | statement_list statement								{$$ = $1;addLinkToList($$, $2);}	
-			   ;
+statement_list
+    : statement_list statement { $$ = $1; addLinkToList($$, $2); }
+    |  { $$ = createListNode("StatementList", NULL); }
+    ;
 
 statement : expression_stmt					{$$ = createStatementNode($1);}
 		  | compound_stmt					{$$ = createStatementNode($1);}
@@ -159,42 +161,47 @@ expression : var ASSIGN expression			{addLinkToList($$, $1);$$ = $3;}
 		   | simple_expression				{$$ = createExpressionNode($1);}
 		   ;
 		   
-var : ID                                                                
-    | ID LBRACKET expression RBRACKET                                       
+var
+    : ID { $$ = createVariableNode($1, NULL); }
+    | ID LBRACKET expression RBRACKET { $$ = createVariableNode($1, $3); }
     ;
 	
 simple_expression : additive_expression relop additive_expression           {$$ = newSimpExp($1, $2, $3);}
                   | additive_expression                                     {$$ = $1;}
                   ;
 				
-relop : LOWEROREQUAL                                                        {$$ = LOWEROREQUAL;}
-	  | LOWER                                                               {$$ = LOWER;}
-	  | GREATEROREQUAL                                                      {$$ = GREATEROREQUAL;}
-	  | GREATER                                                             {$$ = GREATER;}
-	  | EQUAL                                                               {$$ = EQUAL;}
-	  | NOTEQUAL                                                            {$$ = NOTEQUAL;}
-	  ;
+relop
+    : LOWEROREQUAL { $$ = createRelationalOperatorNode("<="); }
+    | LOWER { $$ = createRelationalOperatorNode("<"); }
+    | GREATER { $$ = createRelationalOperatorNode(">"); }
+    | GREATEROREQUAL { $$ = createRelationalOperatorNode(">="); }
+    | EQUAL { $$ = createRelationalOperatorNode("=="); }
+    | NOTEQUAL { $$ = createRelationalOperatorNode("!="); }
+    ;
 
 additive_expression : additive_expression addop term                        {$$ = newAddExp($1, $2, $3);}
                     | term                                                  {$$ = $1;}
                     ;
 
-addop : ADD                                                                 {$$ = ADD;}
-      | SUBSTRACT                                                           {$$ = SUBSTRACT;}
-      ;
+addop
+    : ADD { $$ = createAddSubOperatorNode("+"); }
+    | SUBSTRACT { $$ = createAddSubOperatorNode("-"); }
+    ;
 
 term : term mulop factor                                                    {$$ = newTerm($1, $2, $3);}
      | factor                                                               {$$ = $1;}
      ;
 
-mulop : MULTIPLY                                                            {$$ = MULTIPLY;}
-      | DIVIDE                                                              {$$ = DIVIDE;}
-      ;
+mulop
+    : MULTIPLY { $$ = createMulDivOperatorNode("*"); }
+    | DIVIDE { $$ = createMulDivOperatorNode("/"); }
+    ;
+
 
 factor : LPAREN expression RPAREN                                           {$$ = $2;}
        | var                                                                {$$ = $1;}
        | call                                                               {$$ = $1;}
-       | NUM                                                                {$$ = newNumNode($1);}
+       | NUM                                                                {$$ = newNumNode(NULL, $1);}
        ;
 
 call : ID LPAREN args RPAREN                                                {$$ = newCall($1, $3);}
@@ -204,13 +211,16 @@ args : arg_list                                                             {$$ 
 	 |                                                                      {$$ = NULL;}
 	 ;
 
-arg_list : arg_list END_OF_INSTRUCTION expression                           {$$ = newArgList($1, $3);}
-         | expression                                                       {$$ = $1;}
-         ;
+arg_list
+    : arg_list COMMA expression { $$ = $1; addLinkToList($$, $3); }
+    | expression { $$ = createListNode("ArgumentsList", $1); }
+    ;
 
 
 %%
 
-int yyerror(char *c){
-    printf("Error");
-}
+int yyerror(char * s) 
+{    
+	printf ( "%s\n", s); 
+	return 0;
+}  

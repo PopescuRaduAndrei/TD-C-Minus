@@ -14,7 +14,6 @@ void badChars();
 %}
 
 %%
-"/*"			{ comment(); }
 
 "else"			{ count(); return(ELSE); }
 "if"			{ count(); return(IF); }

@@ -81,6 +81,49 @@ Node* createIfStatement(Node* expression, Node* thenStatement, Node* elseStateme
 	return retNode;
 }
 
+Node* createIterationStatementNode(Node* expression, Node* statement)
+{
+	Node* retNode = createDefaultNode("IterationStatement", 2);
+	retNode->links[0] = expression;
+	retNode->links[1] = statement;
+
+	return retNode;
+}
+
+Node* createAddSubOperatorNode(const char* opratorType)
+{
+	Node* retVal = createDefaultNode("AddSubOperator", 0);
+	if (opratorType)
+		sprintf(retVal->extraData, "%s", opratorType);
+	return retVal;
+}
+
+Node* createMulDivOperatorNode(const char* operatorType)
+{
+	Node* retVal = createDefaultNode("MulDivOperator", 0);
+	if (operatorType)
+		sprintf(retVal->extraData, "%s", operatorType);
+	return retVal;
+}
+
+Node* createRelationalOperatorNode(const char* operatorType)
+{
+	Node* retVal = createDefaultNode("RelationalOperator", 0);
+	if (operatorType)
+		sprintf(retVal->extraData, "%s", operatorType);
+	return retVal;
+}
+
+Node* createVariableNode(const char* identifierName, Node* expression)
+{
+	Node* retNode = createDefaultNode("Variable", 1);
+	retNode->links[0] = expression;
+	if (identifierName)
+		sprintf(retNode->extraData, "%s", identifierName);
+
+	return retNode;
+}
+
 Node* createFunctionDeclarationNode(Node* typeSpecifier, const char* functionName, Node* params, Node* compoundStatement)
 {
 	Node* retNode = createDefaultNode("FunctionDefinition", 3);
@@ -166,32 +209,64 @@ Node* createParametersDeclarationNode(Node* parametersDeclaration)
 
 Node* newSimpExp(Node* addExp1, Node* relop, Node* addExp2)
 {
-	return NULL;
+	Node* retNode = createDefaultNode("SimpleExpression", 3);
+	retNode->links[0] = addExp1;
+	retNode->links[1] = relop;
+	retNode->links[2] = addExp2;
+
+	return retNode;
 }
 
 Node* newAddExp(Node* addExp, Node* addop, Node* term)
 {
-	return NULL;
+	Node* retNode = createDefaultNode("AdditiveExpression", 3);
+	retNode->links[0] = addExp;
+	retNode->links[1] = addop;
+	retNode->links[2] = term;
+
+	return retNode;
 }
 
 Node* newTerm(Node* term, Node* mulop, Node* factor)
 {
-	return NULL;
+	Node* retNode = createDefaultNode("Term", 3);
+	retNode->links[0] = term;
+	retNode->links[1] = mulop;
+	retNode->links[2] = factor;
+
+	return retNode;
 }
 
 Node* newCall(char* ID, Node* args)
 {
-	return NULL;
+	Node* retNode = createDefaultNode("Call", 1);
+	retNode->links[0] = args;
+	if (ID)
+		sprintf(retNode->extraData, "%s", ID);
+
+	return retNode;
 }
 
-Node* newArgList(Node* argList, Node* expression)
+Node* newArgList(Node* argList)
 {
-	return NULL;
+	Node* retNode = createDefaultNode("Arguments", 1);
+	retNode->links[0] = argList;
+
+	return retNode;
 }
 
-Node* newNumNode(int val)
+Node* newNumNode(Node* expression, int val)
 {
-	return NULL;
+	Node* retNode = createDefaultNode("Factor", 1);
+	if (expression)
+		retNode->links[0] = expression;
+	else if (val != 0)
+	{
+		retNode->links[0] = createDefaultNode("Num", 0);
+		sprintf(retNode->links[0]->extraData, "%d", val);
+	}
+
+	return retNode;
 }
 
 

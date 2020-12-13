@@ -1,6 +1,7 @@
 ﻿cminus.y : warning : 1 shift/reduce conflict [-Wconflicts-sr]
   cminus.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
   ast.c
+D:\An IV\TD\TD-C-Compiler\C-Minus\C-Minus\ast.c(21,22): warning C4018: '<': signed/unsigned mismatch
   C-Minus.c
   cminus.tab.c
   lex.yy.c

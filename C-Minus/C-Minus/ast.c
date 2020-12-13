@@ -18,6 +18,9 @@ Node* createDefaultNode(const char* nodeName, unsigned int linksCount)
 		if (linksCount > 0)
 		{
 			retNode->links = (Node**)malloc(linksCount * sizeof(Node*));
+			for (int i = 0; i < linksCount; i++) {
+				retNode->links[i] = NULL;
+			}
 		}
 	}
 	return retNode;

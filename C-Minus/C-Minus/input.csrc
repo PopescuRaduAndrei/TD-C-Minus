@@ -1,12 +1,16 @@
-int factorial(int n){
-	if(n==1)
-		return 1;
+int gcd ( int u, int v )
+{
+	if ( v == 0 )
+		return u ;
 	else
-		return (n*factorial(n-1));
+		return gcd (v, u-u/v*v) ;
 }
-int main(void){
-	int a;
-	a = 4;
-	a = factorial(a);
-	return a; 
-}
+
+void main(void)
+{
+	int x;
+	int y;
+	x = input();
+	y = input();
+	output(gcd(x,y));
+ }

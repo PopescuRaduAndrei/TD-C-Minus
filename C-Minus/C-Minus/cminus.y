@@ -90,8 +90,8 @@
 program: declaration_list								{astRoot = createProgramUnitNode($1); $$ = astRoot;}
 	   ;
 	   
-declaration_list: declaration declaration_list			{addLinkToList($$, $1); $$ = $2;}
-                | declaration							{addLinkToList($$, $1);}
+declaration_list: declaration declaration_list			{$$ = $2; addLinkToList($$, $1);}
+                | declaration							{$$ = createListNode("declaration_list", $1); }
 				;
 				
 selection_stmt : IF LPAREN expression RPAREN statement							{ $$ = createIfStatement($3, $5, NULL);}

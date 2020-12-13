@@ -1206,13 +1206,13 @@ yyreduce:
 
   case 3: /* declaration_list: declaration declaration_list  */
 #line 93 "cminus.y"
-                                                                {addLinkToList((yyval.node), (yyvsp[-1].node)); (yyval.node) = (yyvsp[0].node);}
+                                                                {(yyval.node) = (yyvsp[0].node); addLinkToList((yyval.node), (yyvsp[-1].node));}
 #line 1211 "cminus.tab.c"
     break;
 
   case 4: /* declaration_list: declaration  */
 #line 94 "cminus.y"
-                                                                                {addLinkToList((yyval.node), (yyvsp[0].node));}
+                                                                                {(yyval.node) = createListNode("declaration_list", (yyvsp[0].node)); }
 #line 1217 "cminus.tab.c"
     break;
 

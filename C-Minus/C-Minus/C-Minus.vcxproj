@@ -153,6 +153,7 @@ win_bison cminus.y --defines</Command>
     <ClCompile Include="C-Minus.c" />
     <ClCompile Include="cminus.tab.c" />
     <ClCompile Include="lex.yy.c" />
+    <ClCompile Include="SymbolsTable.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C-Minus.lex" />
@@ -163,6 +164,7 @@ win_bison cminus.y --defines</Command>
     <ClInclude Include="..\symbols.h" />
     <ClInclude Include="ast.h" />
     <ClInclude Include="cminus.tab.h" />
+    <ClInclude Include="SymbolsTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

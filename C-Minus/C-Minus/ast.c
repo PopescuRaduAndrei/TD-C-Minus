@@ -7,6 +7,7 @@
 Node* createDefaultNode(const char* nodeName, unsigned int linksCount)
 {
 	Node* retNode = (Node*)malloc(sizeof(Node));
+	int i;
 	if (retNode)
 	{
 		memset(retNode, 0, sizeof(Node));
@@ -18,9 +19,10 @@ Node* createDefaultNode(const char* nodeName, unsigned int linksCount)
 		if (linksCount > 0)
 		{
 			retNode->links = (Node**)malloc(linksCount * sizeof(Node*));
-			for (int i = 0; i < linksCount; i++) {
-				retNode->links[i] = NULL;
-			}
+		}
+		for (i = 0; i < linksCount; i++)
+		{
+			retNode->links[i] = NULL;
 		}
 	}
 	return retNode;
@@ -154,14 +156,17 @@ Node* createTypeSpecifier(const char* typeName)
 Node* createVarDeclaration(Node* typeSpecifier, const char* varName, int value)
 {
 	Node* retNode = createDefaultNode("VariableDeclaration", 2);
-
 	if (retNode)
 	{
 		retNode->links[0] = typeSpecifier;
 		if (varName)
 			sprintf(retNode->extraData, "%s", varName);
-		retNode->links[1] = createDefaultNode("IntValue", 0);
-		sprintf(retNode->links[1]->extraData, "%d", value);
+
+		if (value > 0)
+		{
+			retNode->links[1] = createDefaultNode("Num", 0);
+			sprintf(retNode->links[1]->extraData, "%d", value);
+		}
 	}
 
 	return retNode;
@@ -296,7 +301,6 @@ void printAst(Node* ast, int level)
 		}
 		for (idx = 0; idx < ast->numLinks; idx++)
 		{
-
 			printAst(ast->links[idx], level + 1);
 		}
 	}

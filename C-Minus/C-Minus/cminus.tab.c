@@ -1212,7 +1212,7 @@ yyreduce:
 
   case 4: /* declaration_list: declaration  */
 #line 94 "cminus.y"
-                                                                                {(yyval.node) = createListNode("declaration_list", (yyvsp[0].node)); }
+                                                                                {(yyval.node) = createListNode("DeclarationsList", (yyvsp[0].node)); }
 #line 1217 "cminus.tab.c"
     break;
 

@@ -4,6 +4,7 @@
 #include <cminus.tab.h>
 #include <errno.h>
 #include "ast.h"
+#include "SymbolsTable.h"
 
 extern int yyparse(void);
 extern FILE* yyin;
@@ -12,59 +13,7 @@ extern Node* astRoot;
 
 int main()
 {
-	const char* lexUnits[] = {
-	"END",
-	"INT",
-	"LONG",
-	"DOUBLE",
-	"SHORT",
-	"UNSIGNED",
-	"VOID",
-	"VOLATILE",
-	"WHILE",
-	"FLOAT",
-	"IF",
-	"ELSE",
-	"RETURN",
-	"CONSTANT",
-	"STRING_LITERAL",
-	"ASSIGN",
-	"ADD",
-	"SUBSTRACT",
-	"IDENTIFIER",
-	"END_OF_INSTRUCTION",
-	"EQUAL",
-	"NOTEQUAL",
-	"LOWER",
-	"LOWEROREQUAL",
-	"GREATER",
-	"GREATEROREQUAL",
-	"MULTIPLY",
-	"DIVIDE",
-	"LPAREN",
-	"RPAREN",
-	"LBRACKET",
-	"RBRACKET",
-	"LBRACE",
-	"RBRACE",
-	"COMMA",
-	"NUM",
-	"ID"
-	};
-
-	/*int tokenValue = 0;
-	yyin = fopen("input.csrc", "rt");
-
-	if (yyin != NULL) {
-		while ((tokenValue = yylex()) != END) {
-			printf(" -> TOKEN ID: %d; TOKEN VALUE: %s \n", tokenValue, lexUnits[tokenValue]);
-		}
-	}
-	else {
-		printf("Fisierul de intrare nu poate fi deschis. Erorare: %d", errno);
-	}*/
-
-	//yydebug = 1;
+	
 	yyin = fopen("input.csrc", "rt");
 	if (yyin != NULL)
 	{
@@ -86,7 +35,11 @@ int main()
 		default:
 			break;
 		}
+		printf("\n---------------------- The syntax tree ------------------");
 		printAst(astRoot, 0);
+		initHashTable();
+		generateSymbolsTable(astRoot, 0, astRoot);
+		printSymbolsTable();
 		fclose(yyin);
 	}
 	else
